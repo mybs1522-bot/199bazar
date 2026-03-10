@@ -244,7 +244,7 @@ export const COURSE_CATEGORIES = [
     ids: ['5', '6', '7', '8']
   },
   {
-    title: "AI & Interactive",
+    title: "AI & MORE",
     ids: ['9', '10', '11']
   }
 ];
@@ -254,40 +254,40 @@ export const BUNDLE_ORIGINAL_PRICE = 11988; // 12 × 999
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: 'Sarah Jenkins',
+    name: 'Aravind Sharma',
     role: 'Senior Architect',
-    location: 'London, UK',
-    content: 'The Revit workflow section alone saved our firm countless hours. Undeniable value.'
+    location: 'Bangalore, India',
+    content: 'The Revit workflow section alone saved our firm countless hours. Undeniable value for Indian projects.'
   },
   {
-    name: 'Michael Chen',
+    name: 'Meera Iyer',
     role: '3D Visualizer',
-    location: 'Toronto, Canada',
-    content: 'V-Ray + 3ds Max combo is a game-changer. Clients confuse my renders with real photographs.'
+    location: 'Chennai, India',
+    content: 'V-Ray + 3ds Max combo is a game-changer. My clients in the real estate sector are blown away by the realism.'
   },
   {
     name: 'Priya Patel',
     role: 'Freelance Designer',
     location: 'Mumbai, India',
-    content: 'Built my entire freelance portfolio using these courses. Now I charge 3x what I used to.'
+    content: 'Built my entire freelance portfolio using these courses. Now I charge 3x what I used to for luxury interiors.'
   },
   {
-    name: 'David Kim',
+    name: 'Rahul Varma',
     role: 'Architecture Student',
-    location: 'Seoul, South Korea',
-    content: 'Landed my dream internship because I was the only one who knew Enscape VR and AI Design.'
+    location: 'Delhi, India',
+    content: 'Landed my dream internship at a top firm because I was the only one who knew Enscape VR and AI Design.'
   },
   {
-    name: 'Elena Rodriguez',
+    name: 'Ananya Gupta',
     role: 'Interior Designer',
-    location: 'Madrid, Spain',
-    content: 'I can now present 10 variations to clients in the time it used to take for one.'
+    location: 'Pune, India',
+    content: 'I can now present 10 variations to clients in the time it used to take for one. Best ₹199 I ever spent.'
   },
   {
-    name: 'Ahmed Hassan',
+    name: 'Vikram Singh',
     role: 'Landscape Architect',
-    location: 'Dubai, UAE',
-    content: 'D5 Render lets me make changes during client meetings. Blows them away every time.'
+    location: 'Jaipur, India',
+    content: 'D5 Render lets me make changes during client meetings. Blows them away every time. Highly recommended.'
   }
 ];
 

@@ -4,6 +4,8 @@ import { CartBar } from './components/CartBar';
 import { CartDrawer } from './components/CartDrawer';
 import { CourseDetailModal } from './components/CourseDetailModal';
 import { Course } from './types';
+import { PurchaseTicker } from './components/PurchaseTicker';
+import { WhatsAppButton } from './components/WhatsAppButton';
 import { COURSES, COURSE_CATEGORIES, BUNDLE_PRICE, TESTIMONIALS, FAQ_ITEMS } from './constants';
 import { ChevronDown, ShoppingCart, Sparkles, ArrowRight, Timer, Star, MapPin, Quote, CheckCircle2, Zap, Shield, ChevronUp, Check } from 'lucide-react';
 import { openRazorpayCheckout } from './services/razorpay';
@@ -197,12 +199,12 @@ const App: React.FC = () => {
 
               {/* Headline */}
               <h1 className="text-4xl md:text-6xl font-display font-bold leading-[1.1] mb-6 text-gray-900">
-                The <span className="text-brand-primary">₹199</span> Design
-                <br />Course Bazaar
+                Professional Interior Designing in 15 Days,
+                <br /><span className="text-brand-primary">New AI Courses</span>
               </h1>
 
-              <p className="text-gray-500 text-lg md:text-xl mb-4 max-w-xl mx-auto font-light leading-relaxed">
-                Pick any course. Each one is <strong className="text-gray-900">₹199</strong>. Or grab all 12 for <strong className="text-gray-900">₹{BUNDLE_PRICE}</strong>.
+              <p className="text-gray-900 text-lg md:text-xl mb-4 max-w-xl mx-auto font-bold leading-relaxed">
+                Start or boost your career now.
               </p>
 
               <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4 md:p-5 max-w-xl mx-auto mb-8 text-center text-sm md:text-base text-gray-700 shadow-sm">
@@ -211,30 +213,46 @@ const App: React.FC = () => {
               </div>
 
               {/* Hero CTAs */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+              <div className="flex justify-center mb-10">
                 <button
                   onClick={scrollToCourses}
-                  className="px-8 py-4 bg-brand-primary text-white rounded-xl font-bold text-lg shadow-glow hover:bg-red-700 transition-all flex items-center gap-2 group"
+                  className="px-10 py-4 bg-brand-primary text-white rounded-xl font-bold text-lg shadow-glow hover:bg-red-700 transition-all flex items-center gap-2 group"
                 >
                   Browse Courses
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button
-                  onClick={addAllToCart}
-                  className="px-8 py-4 bg-gray-900 text-white rounded-xl font-bold text-lg hover:bg-black transition-all flex items-center gap-2"
-                >
-                  <Sparkles size={18} className="text-yellow-400 fill-yellow-400" />
-                  All 12 → ₹{BUNDLE_PRICE}
-                </button>
               </div>
+            </div>
 
-              {/* Trust Signals — compact row */}
-              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs text-gray-400 font-medium">
-                <span className="flex items-center gap-1.5"><CheckCircle2 size={14} className="text-green-500" /> 50,000+ students</span>
-                <span className="flex items-center gap-1.5"><Shield size={14} className="text-blue-500" /> 7-day refund</span>
-                <span className="flex items-center gap-1.5"><Star size={14} className="text-yellow-500 fill-yellow-500" /> 4.8/5 rating</span>
-                <span className="flex items-center gap-1.5"><Zap size={14} className="text-purple-500" /> Instant access</span>
-              </div>
+            {/* Trust Signals — compact row */}
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs text-gray-400 font-medium">
+              <span className="flex items-center gap-1.5"><CheckCircle2 size={14} className="text-green-500" /> 50,000+ students</span>
+              <span className="flex items-center gap-1.5"><Shield size={14} className="text-blue-500" /> 7-day refund</span>
+              <span className="flex items-center gap-1.5"><Star size={14} className="text-yellow-500 fill-yellow-500" /> 4.8/5 rating</span>
+              <span className="flex items-center gap-1.5"><Zap size={14} className="text-purple-500" /> Instant access</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-gray-50 border-y border-gray-100 py-6 md:py-10">
+          <div className="container mx-auto px-2 md:px-8">
+            <div className="text-center mb-6">
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Number of Courses</span>
+            </div>
+            <div className="flex items-center justify-center gap-3 md:gap-12">
+              {COURSE_CATEGORIES.map(cat => (
+                <div key={cat.title} className="flex flex-col items-center group cursor-pointer shrink-0 min-w-max" onClick={() => {
+                  const el = document.getElementById('courses');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}>
+                  <span className="text-lg md:text-3xl font-display font-black text-gray-900 group-hover:text-brand-primary transition-colors">
+                    {cat.ids.length}
+                  </span>
+                  <span className="text-[7.5px] md:text-xs font-bold uppercase tracking-wider text-gray-400 group-hover:text-gray-600 transition-colors">
+                    {cat.title}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -412,61 +430,66 @@ const App: React.FC = () => {
       />
 
       {/* ═══════ PAYMENT SUCCESS OVERLAY ═══════ */}
-      {paymentSuccess && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-[fadeIn_0.5s_ease]">
-          <div className="bg-white rounded-[2rem] p-8 max-w-lg w-full text-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100 relative overflow-hidden max-h-[90vh] overflow-y-auto">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-emerald-500"></div>
+      {
+        paymentSuccess && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-[fadeIn_0.5s_ease]">
+            <div className="bg-white rounded-[2rem] p-8 max-w-lg w-full text-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100 relative overflow-hidden max-h-[90vh] overflow-y-auto">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-emerald-500"></div>
 
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
-              <Check size={40} className="text-green-600" strokeWidth={3} />
-            </div>
-
-            <h2 className="text-3xl font-display font-black text-gray-900 mb-2">Payment Successful!</h2>
-            <p className="text-gray-500 mb-6 leading-relaxed">
-              Your payment of <span className="font-bold text-gray-900">₹{cartTotal}</span> was received. Welcome to Avada!
-            </p>
-
-            <div className="bg-gray-50 rounded-2xl p-5 mb-6 text-left border border-gray-100">
-              <div className="flex items-center gap-2 mb-2">
-                <Sparkles size={16} className="text-brand-primary" />
-                <h3 className="font-bold text-gray-900">Your Course Access Link:</h3>
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                <Check size={40} className="text-green-600" strokeWidth={3} />
               </div>
-              <p className="text-sm text-gray-600 mb-3 leading-relaxed">
-                Click the link below to access all your courses on Google Drive. <strong>Please bookmark or save this link securely.</strong>
+
+              <h2 className="text-3xl font-display font-black text-gray-900 mb-2">Payment Successful!</h2>
+              <p className="text-gray-500 mb-6 leading-relaxed">
+                Your payment of <span className="font-bold text-gray-900">₹{cartTotal}</span> was received. Welcome to Avada!
               </p>
-              <a
-                href="https://drive.google.com/drive/folders/1CCyv9u82HiYI8jnyULISfBoGMcbcqd9U?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold py-3 px-4 rounded-xl text-center border border-blue-200 transition-colors break-all text-xs sm:text-sm"
+
+              <div className="bg-gray-50 rounded-2xl p-5 mb-6 text-left border border-gray-100">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles size={16} className="text-brand-primary" />
+                  <h3 className="font-bold text-gray-900">Your Course Access Link:</h3>
+                </div>
+                <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                  Click the link below to access all your courses on Google Drive. <strong>Please bookmark or save this link securely.</strong>
+                </p>
+                <a
+                  href="https://drive.google.com/drive/folders/1CCyv9u82HiYI8jnyULISfBoGMcbcqd9U?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold py-3 px-4 rounded-xl text-center border border-blue-200 transition-colors break-all text-xs sm:text-sm"
+                >
+                  Access Courses on Google Drive
+                </a>
+              </div>
+
+              <div className="bg-gray-50 rounded-2xl p-4 mb-8 text-left border border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Receipt Number</div>
+                  <div className="font-mono text-xs text-gray-600 truncate">{paymentSuccess}</div>
+                </div>
+                <div className="sm:text-right w-full sm:w-auto p-3 bg-white rounded-lg border border-gray-100">
+                  <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Support / WhatsApp</div>
+                  <a href="https://wa.me/918545015333" target="_blank" rel="noopener noreferrer" className="font-bold text-green-600 hover:text-green-700">+91 8545015333</a>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setPaymentSuccess(null)}
+                className="w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-black transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
               >
-                Access Courses on Google Drive
-              </a>
+                Close & Start Learning
+              </button>
             </div>
-
-            <div className="bg-gray-50 rounded-2xl p-4 mb-8 text-left border border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Receipt Number</div>
-                <div className="font-mono text-xs text-gray-600 truncate">{paymentSuccess}</div>
-              </div>
-              <div className="sm:text-right w-full sm:w-auto p-3 bg-white rounded-lg border border-gray-100">
-                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Support / WhatsApp</div>
-                <a href="https://wa.me/918545015333" target="_blank" rel="noopener noreferrer" className="font-bold text-green-600 hover:text-green-700">+91 8545015333</a>
-              </div>
-            </div>
-
-            <button
-              onClick={() => setPaymentSuccess(null)}
-              className="w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-black transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
-            >
-              Close & Start Learning
-            </button>
           </div>
-        </div>
-      )}
+        )
+      }
 
       {/* Bottom spacer to not hide content behind the CartBar */}
       {cart.size > 0 && <div className="h-20"></div>}
+      {/* Floating Elements */}
+      <PurchaseTicker />
+      <WhatsAppButton visible={!isCartOpen} />
     </div>
   );
 };
