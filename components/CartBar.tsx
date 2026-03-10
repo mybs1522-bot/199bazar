@@ -9,7 +9,15 @@ interface CartBarProps {
 }
 
 export const CartBar: React.FC<CartBarProps> = ({ itemCount, total, onCheckout, onViewCart }) => {
-    if (itemCount === 0) return null;
+    const [isBlinking, setIsBlinking] = React.useState(false);
+
+    React.useEffect(() => {
+        if (itemCount > 0) {
+            setIsBlinking(true);
+            const timer = setTimeout(() => setIsBlinking(false), 600);
+            return () => clearTimeout(timer);
+        }
+    }, [itemCount]);
 
     return (
         <div className="fixed bottom-0 left-0 right-0 z-50 animate-[slideUp_0.3s_ease-out]">
@@ -17,6 +25,10 @@ export const CartBar: React.FC<CartBarProps> = ({ itemCount, total, onCheckout, 
         @keyframes slideUp {
           0% { transform: translateY(100%); opacity: 0; }
           100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes cartBlink {
+          0%, 100% { transform: scale(1); filter: brightness(1); }
+          50% { transform: scale(1.2); filter: brightness(1.5); color: #ef4444; }
         }
       `}</style>
 
@@ -28,8 +40,8 @@ export const CartBar: React.FC<CartBarProps> = ({ itemCount, total, onCheckout, 
                         onClick={onViewCart}
                         className="flex items-center gap-3 text-white hover:text-brand-accent transition-colors"
                     >
-                        <div className="relative">
-                            <ShoppingCart size={22} />
+                        <div className={`relative transition-all duration-300 ${isBlinking ? 'animate-[cartBlink_0.6s_ease-in-out]' : ''}`}>
+                            <ShoppingCart size={22} className={isBlinking ? 'text-brand-primary' : ''} />
                             <div className="absolute -top-2 -right-2 bg-brand-primary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
                                 {itemCount}
                             </div>

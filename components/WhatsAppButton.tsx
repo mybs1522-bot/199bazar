@@ -15,7 +15,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ visible = true }
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-24 right-4 md:bottom-8 md:right-8 z-50 group"
+            className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 group"
             aria-label="Chat on WhatsApp"
         >
             {/* Tooltip */}

@@ -36,7 +36,7 @@ export const PurchaseTicker: React.FC = () => {
 
     return (
         <div
-            className={`fixed bottom-24 left-4 md:bottom-8 md:left-8 z-50 transition-all duration-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'
+            className={`fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 transition-all duration-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'
                 }`}
         >
             <div className="bg-white/95 backdrop-blur-sm border border-gray-100 shadow-xl rounded-2xl p-3 md:p-4 flex items-center gap-3 md:gap-4 max-w-[280px] md:max-w-sm">

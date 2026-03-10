@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Trash2, ShoppingBag, ArrowRight, Sparkles, Check, Mail, Phone, Timer } from 'lucide-react';
+import { X, Trash2, ShoppingBag, ArrowRight, Sparkles, Check, Mail, Phone, Timer, Lock } from 'lucide-react';
 import { Course } from '../types';
 import { COURSES, BUNDLE_PRICE } from '../constants';
 
@@ -169,6 +169,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 {/* Footer — Checkout */}
                 {cartIds.size > 0 && (
                     <div className="p-5 border-t border-gray-100 bg-white">
+                        {/* Dark Checkout Header */}
+                        <div className="bg-gray-900 border border-gray-800 p-3 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.1)] text-white font-bold mb-5 flex items-center justify-center gap-2">
+                            <Lock size={16} className="text-gray-400" />
+                            <span>Secure Checkout Area</span>
+                        </div>
+
                         {/* Contact Info */}
                         <div className="space-y-3 mb-5">
                             {/* Phone Input */}
