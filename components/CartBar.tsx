@@ -32,39 +32,39 @@ export const CartBar: React.FC<CartBarProps> = ({ itemCount, total, onCheckout, 
         }
       `}</style>
 
-            <div className="bg-gray-900 border-t border-gray-800 shadow-[0_-8px_30px_rgba(0,0,0,0.3)]">
-                <div className="container mx-auto px-4 md:px-8 py-3 flex items-center justify-between gap-4">
+            <div className="bg-gray-900 border-t border-gray-800 shadow-[0_-4px_20px_rgba(0,0,0,0.25)]">
+                <div className="container mx-auto px-4 md:px-8 py-1.5 flex items-center justify-between gap-3">
 
                     {/* Left: Cart Summary */}
                     <button
                         onClick={onViewCart}
-                        className="flex items-center gap-3 text-white hover:text-brand-accent transition-colors"
+                        className="flex items-center gap-2 text-white hover:text-brand-accent transition-colors"
                     >
                         <div className={`relative transition-all duration-300 ${isBlinking ? 'animate-[cartBlink_0.6s_ease-in-out]' : ''}`}>
-                            <ShoppingCart size={22} className={isBlinking ? 'text-brand-primary' : ''} />
-                            <div className="absolute -top-2 -right-2 bg-brand-primary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                            <ShoppingCart size={18} className={isBlinking ? 'text-brand-primary' : ''} />
+                            <div className="absolute -top-1.5 -right-1.5 bg-brand-primary text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                                 {itemCount}
                             </div>
                         </div>
                         <div className="text-left">
-                            <div className="text-sm font-bold">{itemCount} course{itemCount > 1 ? 's' : ''} selected</div>
-                            <div className="text-xs text-gray-400">Tap to view cart</div>
+                            <div className="text-xs font-bold leading-tight">{itemCount} course{itemCount > 1 ? 's' : ''}</div>
+                            <div className="text-[10px] text-gray-400 leading-tight">Tap to view</div>
                         </div>
                     </button>
 
                     {/* Right: Total + Checkout */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                         <div className="text-right hidden sm:block">
-                            <div className="text-xs text-gray-400 uppercase tracking-widest">Total</div>
-                            <div className="text-xl font-display font-bold text-white">₹{total.toLocaleString()}</div>
+                            <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight">Total</div>
+                            <div className="text-lg font-display font-bold text-white leading-tight">₹{total.toLocaleString()}</div>
                         </div>
                         <button
                             onClick={onCheckout}
-                            className="bg-brand-primary hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 transition-all shadow-glow hover:shadow-glow-lg text-sm md:text-base"
+                            className="bg-brand-primary hover:bg-blue-700 text-white font-bold px-5 py-2 rounded-lg flex items-center gap-1.5 transition-all shadow-glow hover:shadow-glow-lg text-sm"
                         >
-                            <span className="sm:hidden font-display text-lg">₹{total.toLocaleString()}</span>
+                            <span className="sm:hidden font-display text-base">₹{total.toLocaleString()}</span>
                             <span>Checkout</span>
-                            <ArrowRight size={16} />
+                            <ArrowRight size={14} />
                         </button>
                     </div>
                 </div>

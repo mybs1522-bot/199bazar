@@ -4,7 +4,6 @@ import { CartBar } from '../components/CartBar';
 import { CartDrawer } from '../components/CartDrawer';
 import { CourseDetailModal } from '../components/CourseDetailModal';
 import { Course } from '../types';
-import { PurchaseTicker } from '../components/PurchaseTicker';
 import { COURSES, COURSE_CATEGORIES, BUNDLE_PRICE, TESTIMONIALS, FAQ_ITEMS } from '../constants';
 import { ChevronDown, ShoppingCart, Sparkles, ArrowRight, Timer, Star, MapPin, Quote, CheckCircle2, Zap, Shield, ChevronUp, Check } from 'lucide-react';
 import { openRazorpayCheckout } from '../services/razorpay';
@@ -34,6 +33,36 @@ const CheckoutPage: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({ h: 2, m: 23, s: 49 });
   const [detailCourse, setDetailCourse] = useState<Course | null>(null);
   const [paymentSuccess, setPaymentSuccess] = useState<string | null>(null); // paymentId
+  const [highlightIndex, setHighlightIndex] = useState<number>(-1);
+
+  // Auto-scroll showcase: highlight each course card one-by-one, then scroll back to top
+  useEffect(() => {
+    const totalCourses = COURSES.length;
+    const perCardDelay = 120; // ms per card
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+
+    // Schedule each card highlight
+    for (let i = 0; i < totalCourses; i++) {
+      const t = setTimeout(() => {
+        setHighlightIndex(i);
+        const el = document.querySelector(`[data-course-index="${i}"]`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'auto', block: 'center' });
+        }
+      }, 400 + i * perCardDelay);
+      timeouts.push(t);
+    }
+
+    // After all cards, clear highlight and scroll back to top
+    const finishTime = 400 + totalCourses * perCardDelay + 200;
+    const tFinish = setTimeout(() => {
+      setHighlightIndex(-1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, finishTime);
+    timeouts.push(tFinish);
+
+    return () => timeouts.forEach(t => clearTimeout(t));
+  }, []);
 
   // Timer Logic (synced)
   useEffect(() => {
@@ -127,6 +156,15 @@ const CheckoutPage: React.FC = () => {
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes courseHighlight {
+          0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); transform: scale(1); }
+          50% { box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.4); transform: scale(1.03); }
+          100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); transform: scale(1); }
+        }
+        .course-highlight {
+          animation: courseHighlight 0.3s ease-out;
+          border-color: rgba(37, 99, 235, 0.5) !important;
+        }
       `}</style>
 
       {/* ═══════ ANNOUNCEMENT BAR ═══════ */}
@@ -246,15 +284,23 @@ const CheckoutPage: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5">
-                    {categoryCourses.map(course => (
-                      <CourseCard
-                        key={course.id}
-                        course={course}
-                        isInCart={cart.has(course.id)}
-                        onToggleCart={toggleCart}
-                        onViewDetails={(c) => setDetailCourse(c)}
-                      />
-                    ))}
+                    {categoryCourses.map(course => {
+                      const globalIdx = COURSES.findIndex(c => c.id === course.id);
+                      return (
+                        <div
+                          key={course.id}
+                          data-course-index={globalIdx}
+                          className={`transition-all duration-200 rounded-2xl ${highlightIndex === globalIdx ? 'course-highlight' : ''}`}
+                        >
+                          <CourseCard
+                            course={course}
+                            isInCart={cart.has(course.id)}
+                            onToggleCart={toggleCart}
+                            onViewDetails={(c) => setDetailCourse(c)}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               );
@@ -444,9 +490,7 @@ const CheckoutPage: React.FC = () => {
       }
 
       {/* Bottom spacer to not hide content behind the CartBar */}
-      {cart.size > 0 && <div className="h-20"></div>}
-      {/* Floating Elements */}
-      <PurchaseTicker />
+      {cart.size > 0 && <div className="h-14"></div>}
     </div>
   );
 };
