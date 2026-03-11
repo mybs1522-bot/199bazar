@@ -19,51 +19,12 @@ export const RAW_JOINERS = [
 export const PROBLEM_POINTS = [
   { emoji: "⏰", text: "Ek floor plan banane mein 4 ghante lag rahe? Yahan ke students 40 minute mein finish karte hain." },
   { emoji: "💸", text: "Agency ko ₹50,000 per render de rahe ho? Ye paisa tumhare pocket mein hona chahiye!" },
-  { emoji: "📉", text: "₹15 lakh ke projects haar rahe ho kyunki competitor 3D walkthrough dikhata hai aur tum flat PDF?" },
-  { emoji: "🤖", text: "AI se trained designers 3x zyada charge kar rahe hain — aur tum abhi bhi purane tarike se kaam kar rahe ho?" },
-  { emoji: "🎓", text: "Degree toh le li lekin ek bhi portfolio-ready render nahi hai — phir interview mein silence kyu?" },
-  { emoji: "😤", text: "50 YouTube tutorials dekh liye, kuch connect nahi hota — abhi tak ek professional render nahi bana?" },
+  { emoji: "📉", text: "₹15 lakh ke projects haar rahe ho kyunki competitor 3D walkthrough dikhata hai aur tum flat PDF?" }
 ];
 
 export const TRANSFORMATION_STORIES = [
-  { name: "Priya P.", role: "Freelancer → ₹80,000/project", before: "₹15,000 per project charge karti thi. Raat-raat bhar kaam. Clients ghost kar dete the.", after: "3 mahine mein income triple ho gayi. Ab clients ₹80,000+ bina negotiate kiye dete hain.", emoji: "💰" },
-  { name: "Rahul V.", role: "Student → 3 Job Offers", before: "Zero experience. 40 jagah apply kiya: silence. Professors bhi help nahi kar paaye.", after: "15 din mein portfolio bana liya. Graduation se pehle 3 offers aa gaye. Ab professors unse tips maangte hain.", emoji: "🎓" },
-  { name: "Vikram S.", role: "Developer → ₹30L Saved/Year", before: "Agency ko ₹50,000 per render image deta tha. Hafton wait karna padta. Zero control.", after: "Ab sab in-house hota hai. Is saal ₹30 lakh bachaye. Renders ghanton mein, hafton nahi.", emoji: "📈" },
-  { name: "Ananya G.", role: "Junior → AI Skills se Hired", before: "40 firms mein apply kiya generic portfolio se. Silence. Interview tak nahi mili.", after: "AI + rendering skills se portfolio rebuild kiya. 2 hafte mein 3 offers. AI workflow ke liye specifically hire hui.", emoji: "🤖" },
-];
-
-export const CHOOSE_PATH_DATA = [
-  { title: 'Dream Job Pakdo', description: '15 din mein aisa portfolio banao ki HR scroll karna band kar de. AI + rendering skills se hire ho — sirf degree se nahi.', color: 'from-purple-500/20 to-purple-600/10', emoji: '🎯' },
-  { title: 'Global Freelancing Shuru Karo', description: '₹3,000–₹10,000 per rendered image charge karo. ₹50,000–₹5,00,000 per walkthrough. Kahin se bhi kaam karo.', color: 'from-blue-500/20 to-blue-600/10', emoji: '🌍' },
-  { title: 'Apna Studio Level-Up Karo', description: 'Renders outsource karna band karo. Apni team ko full pipeline sikho. Is quarter profit double karo.', color: 'from-indigo-500/20 to-indigo-600/10', emoji: '🏢' }
-];
-
-export const INDUSTRIES = [
-  { label: 'Architecture Students', icon: '🎓', hook: 'Aise portfolio ke saath graduate ho ki callbacks aayein' },
-  { label: 'Interior Designers', icon: '🎨', hook: 'Better presenters se clients mat khona' },
-  { label: '3D Visualizers', icon: '🖥️', hook: 'AI se render time 80% kam karo' },
-  { label: 'Freelancers', icon: '💼', hook: 'Kahin se bhi ₹1 lakh/month tak scale karo' },
-  { label: 'Studio Owners', icon: '🏢', hook: 'Outsourcing band karo — profit apne paas rakho' },
-  { label: 'Real Estate Developers', icon: '🏗️', hook: 'Properties bech do construction se pehle' },
-];
-
-export const BUSINESS_MODULES = [
-  { title: 'Freelance Rendering Services', description: '₹3,000–₹10,000 per photorealistic image charge karo. Ek walkthrough = ₹5,00,000. Math simple hai.', icon: '🖼️' },
-  { title: 'Cinematic Walkthroughs', description: '₹50,000–₹5,00,000 ke video tours becho jo 60 second mein deal close kar dein. Client ek eent rakhne se pehle pyaar ho jayega.', icon: '🎬' },
-  { title: 'In-House Visualization', description: 'Agency ko ₹50,000/image dena band karo. Team ko pipeline sikao. Har paisa apne paas aaye.', icon: '🏢' },
-  { title: 'AI-Powered Concept Generation', description: '10 minute mein 10 stunning concepts generate karo FREE AI tools se jo ₹40,000/month software replace kare.', icon: '🤖' },
-];
-
-export const PHASE_DATA = [
-  { phase: '01', title: 'AutoCAD Precision Drafting', desc: 'Shortcuts jo drafting time 60% kam kar dein. Plans jo builders ko pasand aayein.' },
-  { phase: '02', title: 'SketchUp 3D Modeling', desc: 'Complex models 5x fast banao. Organized scenes jo kabhi crash na ho.' },
-  { phase: '03', title: 'V-Ray Photorealistic Rendering', desc: 'Lighting aur materials jo real photos se alag nahi dikhte. ₹10,000/image charge karo.' },
-  { phase: '04', title: 'Lumion Cinematic Walkthroughs', desc: 'Movie-quality tours jo projects 60 second mein bech dein.' },
-  { phase: '05', title: 'D5 Real-Time Rendering', desc: 'Changes instantly dekho. Client ke saamne live present karo. Meetings mein deals close karo.' },
-  { phase: '06', title: 'AI Architecture Mastery', desc: 'AI rendering kare, tum design karo. Free tools se 10x output badhao.' },
-  { phase: '07', title: '10,000+ Asset Library', desc: 'Drag-and-drop textures aur models. Har project mein 10+ ghante bachao. Free included.' },
-  { phase: '08', title: 'Software & Pipeline Setup', desc: 'Har tool FREE mein install — koi expensive license nahi. Sab hum dete hain.' },
-  { phase: '09', title: 'Portfolio & Income System', desc: '6+ portfolio pieces banao. Rates set karo. Pehle hafte mein ₹50,000+ ki gig lo.' },
+  { name: "Priya P.", role: "Freelancer → ₹80,000/project", before: "₹15,000 per project charge karti thi. Raat-raat bhar kaam. Clients ghost kar dete the.", after: "Ab clients ₹80,000+ bina negotiate kiye dete hain.", emoji: "💰" },
+  { name: "Rahul V.", role: "Student → 3 Job Offers", before: "Zero experience. 40 jagah apply kiya: silence.", after: "15 din mein portfolio bana liya. 3 offers aa gaye.", emoji: "🎓" }
 ];
 
 export const PAGE_PREVIEWS_ROW1 = [
@@ -85,12 +46,6 @@ export const FEAR_STATS = [
   { stat: '5x', label: 'zyada chances hire hone ke agar AI + rendering skills portfolio mein ho', icon: '🚀' },
   { stat: '₹30L+', label: 'average amount studios har saal renders outsource karne mein waste karte hain', icon: '💸' },
   { stat: '15 din', label: 'zero experience se pehla paid render — agar abhi start karo toh', icon: '⏳' },
-];
-
-export const AI_TRUTH = [
-  { title: 'AI Render KAR Sakta Hai', desc: 'AI seconds mein photorealistic images generate karta hai. Lighting, materials, textures, post-production — sab handle karta hai jo pehle ghanton lagta tha.', verdict: 'SACH', color: 'green' },
-  { title: 'AI Design NAHI Kar Sakta', desc: 'AI ko structural integrity, clearances, building codes, client requirements, ya spatial logic nahi samajh aata. Beautiful images banata hai impossible buildings ki.', verdict: 'PROBLEM', color: 'red' },
-  { title: 'Hybrid Workflow Jeetega', desc: 'TUM accurately design karo AutoCAD + SketchUp mein. AI rendering handle kare. Result: 10x faster output, accuracy mein zero compromise. Yahi future hai.', verdict: 'SOLUTION', color: 'blue' },
 ];
 
 /* ─── LOGO ─── */
@@ -213,44 +168,10 @@ export const FAQ_ITEMS_LANDING = [
 ];
 
 export const INCOME_TIERS = [
-  { label: 'Single Render Image', before: '₹500–₹1,000', after: '₹3,000–₹10,000', icon: '🖼️' },
-  { label: 'Interior Design (1000 sq.ft)', before: '₹5,000–₹15,000', after: '₹50,000–₹1,50,000', icon: '🏠' },
-  { label: 'Cinematic Walkthrough', before: '₹0', after: '₹1,00,000–₹5,00,000', icon: '🎬' },
-  { label: 'Monthly Freelance Income', before: '₹20,000–₹50,000', after: '₹2,00,000–₹10,00,000', icon: '💰' },
-];
-
-export const MENTORS = [
-  {
-    name: 'Marcus Reid',
-    title: 'Lead Instructor — SketchUp, V-Ray, Lumion',
-    bio: '12+ saal architectural visualization mein. 50,000+ students ko 42 countries mein train kiya. Former visualization lead at a top Sydney firm.',
-    students: '50,000+',
-    rating: 4.8,
-  },
-  {
-    name: 'Lucas Ferreira',
-    title: 'Instructor — AutoCAD, D5 Render, Revit',
-    bio: '10+ saal ka industry experience. BIM workflows aur real-time rendering specialist. Europe aur South America mein 200+ commercial projects.',
-    students: '35,000+',
-    rating: 4.9,
-  }
-];
-
-export const WHO_IS_THIS_FOR = [
-  'Tumhe aisa portfolio chahiye jo sach mein job dilaye',
-  'Tum ₹50,000+ per render charge karna chahte ho aur confident feel karna chahte ho',
-  'Tum all-nighters band karna chahte ho aur 5 baje ghar jaana chahte ho',
-  'Tumhe design ideas bechne ke liye photorealistic visuals chahiye',
-  'Tum struggle karna band karke deserve kiye hue paisa kamana chahte ho',
-  'Tum globally freelance karna chahte ho aur kahin se bhi kaam karna chahte ho'
-];
-
-export const WHO_IS_THIS_NOT_FOR = [
-  'Tumhe "magic button" chahiye jo tumhare liye kaam kare',
-  'Tum 15 din tak roz 1-2 ghante dene ko ready nahi ho',
-  'Tum naye tools sikhna ya modern workflows adopt karna nahi chahte',
-  'Tum purane tarike se kaam karte rehna chahte ho',
-  'Tum bina mehnat overnight crorepati banna chahte ho'
+  { label: 'Single Render Image', before: '₹500', after: '₹5,000+', icon: '🖼️' },
+  { label: 'Interior Design (Flat)', before: '₹10,000', after: '₹80,000+', icon: '🏠' },
+  { label: 'Cinematic Walkthrough', before: '₹0', after: '₹1,50,000+', icon: '🎬' },
+  { label: 'Freelance Monthly', before: '₹20,000', after: '₹2,00,000+', icon: '💰' },
 ];
 
 export const COURSES_LANDING = [
@@ -286,14 +207,15 @@ export const COURSES_LANDING = [
     id: '7', title: 'D5 Render', software: 'D5 Render', students: '19k',
     description: 'Real-time rendering game change karta hai. Har material, lighting, angle change instantly dekho.',
     imageUrl: 'https://lh3.googleusercontent.com/d/1vbV4j6K9sgzbbZ7qlRdgqPTXWiHBPLsr',
-    learningPoints: ['Zero render wait time — changes live dekho', 'Drag-and-drop asset workflow', '4K cinematic images seconds mein'],
+    learningPoints: ['Zero wait time — changes live dekho', 'Drag-and-drop asset workflow', '4K cinematic images seconds mein'],
     workflowImpact: 'Client meetings mein live designs badlo.'
   },
   {
     id: '9', title: 'AI Advantage', software: 'AI Architecture', students: '75k',
     description: 'Coffee khatam hone se pehle stunning design concepts generate karo. Top studios ke AI tricks seekho.',
     imageUrl: 'https://lh3.googleusercontent.com/d/1s-HzZVKpc9F92mLW2gMOPk0kVrKAqUIS',
-    learningPoints: ['10 minute mein 10 concepts generate karo', 'AI se renders fix karo — re-rendering nahi', 'Free tools jo ₹40,000/month software replace karein'],
+    learningPoints: ['10 minute mein 10 concepts generate karo', 'AI se renders fix karo', 'Free tools jo expensive software replace karein'],
     workflowImpact: 'Kabhi blank page se start nahi karna padega.'
   },
 ];
+
