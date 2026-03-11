@@ -60,7 +60,7 @@ export const CartBar: React.FC<CartBarProps> = ({ itemCount, total, onCheckout, 
                         </div>
                         <button
                             onClick={onCheckout}
-                            className="bg-brand-primary hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 transition-all shadow-glow hover:shadow-glow-lg text-sm md:text-base"
+                            className="bg-brand-primary hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 transition-all shadow-glow hover:shadow-glow-lg text-sm md:text-base"
                         >
                             <span className="sm:hidden font-display text-lg">₹{total.toLocaleString()}</span>
                             <span>Checkout</span>

@@ -73,7 +73,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, isInCart, onTogg
                         }}
                         className={`w-full sm:w-auto flex items-center justify-center gap-1.5 px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-xs md:text-sm font-bold transition-all duration-200 ${isInCart
                             ? 'bg-green-50 text-green-700 border border-green-200 hover:bg-red-50 hover:text-red-600 hover:border-red-200'
-                            : 'bg-brand-primary text-white hover:bg-red-700 shadow-sm hover:shadow-glow'
+                            : 'bg-brand-primary text-white hover:bg-blue-700 shadow-sm hover:shadow-glow'
                             }`}
                     >
                         {isInCart ? (

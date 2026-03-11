@@ -127,7 +127,7 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({
                                 onClick={() => onToggleCart(course.id)}
                                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all duration-200 ${isInCart
                                     ? 'bg-green-50 text-green-700 border border-green-200 hover:bg-red-50 hover:text-red-600 hover:border-red-200'
-                                    : 'bg-brand-primary text-white hover:bg-red-700 shadow-glow hover:shadow-glow-lg'
+                                    : 'bg-brand-primary text-white hover:bg-blue-700 shadow-glow hover:shadow-glow-lg'
                                     }`}
                             >
                                 {isInCart ? (

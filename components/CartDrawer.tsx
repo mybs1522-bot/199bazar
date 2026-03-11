@@ -143,7 +143,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                                 </div>
                                 <button
                                     onClick={onAddAll}
-                                    className="w-full py-2 bg-brand-primary hover:bg-red-700 text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 transition-colors shadow-glow"
+                                    className="w-full py-2 bg-brand-primary hover:bg-blue-700 text-white font-bold rounded-lg text-sm flex items-center justify-center gap-2 transition-colors shadow-glow"
                                 >
                                     <Sparkles size={12} />
                                     Grab All 12 Courses
@@ -170,9 +170,9 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 {cartIds.size > 0 && (
                     <div className="p-5 border-t border-gray-100 bg-white">
                         {/* Dark Checkout Header */}
-                        <div className="bg-gray-900 border border-gray-800 p-3 rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.1)] text-white font-bold mb-5 flex items-center justify-center gap-2">
+                        <div className="text-gray-900 font-bold mb-4 flex items-center justify-center gap-2">
                             <Lock size={16} className="text-gray-400" />
-                            <span>Secure Checkout Area</span>
+                            <span>Checkout</span>
                         </div>
 
                         {/* Contact Info */}

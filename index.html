@@ -3,19 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avada ₹199 Bazaar — Architecture & Design Courses</title>
+    <title>Avada — AI-Powered Architecture Design Education | ₹199/Course</title>
+    <meta name="description" content="Professional Interior Designing 15 din mein seekho. AI-ready workflow. 50,000+ students enrolled. Har course sirf ₹199." />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="preconnect" href="https://iframe.mediadelivery.net">
+    <link rel="dns-prefetch" href="https://iframe.mediadelivery.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Outfit', 'sans-serif'],
+              sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
               display: ['Space Grotesk', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+              mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
               glass: {
@@ -23,47 +28,101 @@
                 200: 'rgba(255, 255, 255, 0.9)',
                 300: 'rgba(255, 255, 255, 0.95)',
                 border: 'rgba(0, 0, 0, 0.05)',
-                text: '#1a1a1a',
-                textMuted: '#666666',
               },
               brand: {
-                accent: '#FF0000', // Bright Glowy Red
-                primary: '#D90429', // Deep Classy Red
-                dark: '#2B2D42', // Dark Text
-              }
+                accent: '#3b82f6',
+                primary: '#2563eb',
+                dark: '#0f172a',
+                success: '#10b981',
+              },
             },
             boxShadow: {
-              'glow': '0 0 20px rgba(255, 0, 0, 0.3)',
-              'glow-lg': '0 0 30px rgba(255, 0, 0, 0.5)',
-            }
+              'glow': '0 0 20px rgba(37, 99, 235, 0.3)',
+              'glow-lg': '0 0 40px rgba(37, 99, 235, 0.5)',
+              'soft': '0 2px 40px rgba(0,0,0,0.06)',
+              'lift': '0 20px 60px rgba(0,0,0,0.1)',
+              'premium': '0 25px 80px -12px rgba(0,0,0,0.15)',
+              'card': '0 4px 24px rgba(0,0,0,0.06)',
+            },
           }
         }
       }
     </script>
     <style>
-      /* Custom Scrollbar for Light Theme */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: #f5f5f5; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      html { scroll-behavior: auto; }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #2563eb 0%, #60a5fa 50%, #2563eb 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
+
+      .grid-bg {
+        background-color: #ffffff;
+        background-image: 
+          linear-gradient(to right, rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
       }
-      ::-webkit-scrollbar-thumb {
-        background: #D90429; 
-        border-radius: 4px;
+
+      /* Scroll Reveal */
+      .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal.revealed { opacity: 1; transform: translateY(0); }
+      .reveal-scale { opacity: 0; transform: scale(0.9); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal-scale.revealed { opacity: 1; transform: scale(1); }
+
+      /* Scroll Carousel */
+      @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+      @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+      .animate-scroll-left { display: flex; width: max-content; animation: scroll-left 40s linear infinite; }
+      .animate-scroll-right { display: flex; width: max-content; animation: scroll-right 40s linear infinite; }
+      .hover\:pause:hover { animation-play-state: paused; }
+
+      /* Flip Clock */
+      .flip-clock-group { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+      .flip-clock-label { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+      .flip-digit-wrapper { perspective: 200px; }
+      .flip-digit {
+        width: 36px; height: 48px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 8px; display: flex; align-items: center; justify-content: center;
+        font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: white;
+        position: relative; overflow: hidden;
       }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #FF0000; 
+      .flip-digit::after { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.06); }
+      @media (min-width: 768px) { .flip-digit { width: 48px; height: 64px; font-size: 32px; } }
+
+      /* Premium Stroke */
+      @keyframes borderRotate { 0% { --angle: 0deg; } 100% { --angle: 360deg; } }
+      @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+      .premium-stroke { position: relative; z-index: 1; }
+      .premium-stroke::before {
+        content: ''; position: absolute; inset: -1px; padding: 1px; border-radius: inherit;
+        background: conic-gradient(from var(--angle), transparent 0%, transparent 80%, white 90%, transparent 100%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor; mask-composite: exclude;
+        animation: borderRotate 3s linear infinite; pointer-events: none; z-index: -1;
       }
-      
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
+
+      /* CTA Sweep */
+      .cta-primary { position: relative; overflow: hidden; }
+      .cta-primary::after {
+        content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+        background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+        transform: translateX(-100%); transition: transform 0.6s;
       }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
+      .cta-primary:hover::after { transform: translateX(100%); }
+
+      /* Keyframes */
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes glowPulse { 0%, 100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); } 50% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.6); } }
+
+      body { background: #ffffff; }
     </style>
   <script type="importmap">
 {
@@ -77,8 +136,27 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-white text-gray-900 overflow-x-hidden antialiased selection:bg-brand-primary selection:text-white">
+  <body class="bg-white text-slate-900 overflow-x-hidden antialiased selection:bg-blue-200 selection:text-slate-900 grid-bg">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
+
+  <!-- Scroll reveal observer -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    const startObserving = () => {
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+    };
+
+    const mo = new MutationObserver(() => startObserving());
+    mo.observe(document.getElementById('root'), { childList: true, subtree: true });
+    document.addEventListener('DOMContentLoaded', startObserving);
+  </script>
 </body>
 </html>
