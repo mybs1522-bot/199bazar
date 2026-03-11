@@ -231,11 +231,8 @@ const LandingPage: React.FC = () => {
               </div>
 
               <div className="bg-blue-50/50 border-t border-blue-200 px-6 py-6 flex flex-col items-center gap-6 justify-center">
-                <div className="flex flex-col sm:flex-row gap-6 items-center justify-between w-full">
-                  <span className="text-slate-900 font-bold text-center sm:text-left">Lifetime Access + Free Updates</span>
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl font-black text-blue-600">₹199 <span className="text-sm text-slate-500 font-medium line-through">₹999</span></span>
-                  </div>
+                <div className="flex flex-col sm:flex-row gap-6 items-center justify-center w-full">
+                  <span className="text-slate-900 font-bold text-center">Lifetime Access + Free Updates</span>
                 </div>
                 <button onClick={openCheckout} className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-bold text-lg shadow-xl shadow-blue-500/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 group premium-stroke">
                   Access Everything Instantly <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
