@@ -247,7 +247,7 @@ const LandingPage: React.FC = () => {
           <div className="max-w-5xl mx-auto px-5 mb-12">
             <div className="text-center mb-12">
               <p className="text-blue-500 text-xs font-mono uppercase tracking-widest mb-4">Student Reviews</p>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-4">Unse suno jinhone <span className="text-blue-500">already progress kar li</span></h2>
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 tracking-tight mb-4">Students & <span className="text-blue-500">Professionals</span></h2>
               <p className="text-slate-600 text-lg">50,000+ learners • 4.9★ average rating</p>
             </div>
 
