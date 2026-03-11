@@ -110,7 +110,7 @@ const LandingPage: React.FC = () => {
           <div className="max-w-3xl mx-auto px-5">
             <div className="reveal text-center mb-12">
               <p className="text-blue-500 text-xs font-mono uppercase tracking-widest mb-4">Instructor ka message</p>
-              <h2 className="text-3xl md:text-5xl font-serif italic text-slate-900 mb-8 leading-snug">"Maine is industry ko talented logon ko punish karte dekha hai jo apne ideas visualize nahi kar paate."</h2>
+              <h2 className="text-3xl md:text-5xl font-serif italic text-slate-900 mb-8 leading-snug">"Humne is industry ko talented logon ko punish karte dekha hai jo apne ideas visualize nahi kar paate."</h2>
             </div>
             <div className="reveal space-y-6 text-slate-600 text-base md:text-lg leading-relaxed">
               <p>Sach ye hai jo koi nahi batata: <strong className="text-slate-900">sirf design skill se ab clients nahi milte.</strong></p>
@@ -119,7 +119,7 @@ const LandingPage: React.FC = () => {
               <p>Universities ye tools nahi sikhati. Expensive courses ₹1,50,000+ lete hain, random YouTube videos 100+ ghante waste karti hain, aur tumhare haath mein phir bhi koi portfolio nahi hota.</p>
               
               <div className="my-10 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 md:p-8 shadow-soft">
-                <p className="font-bold text-slate-900 text-xl mb-4">Toh maine ye system banaya.</p>
+                <p className="font-bold text-slate-900 text-xl mb-4">Toh humne ye system banaya.</p>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3"><CheckCircle size={18} className="text-blue-500 shrink-0" /><span className="text-slate-800">12 Courses. The complete pipeline.</span></li>
                   <li className="flex items-center gap-3"><CheckCircle size={18} className="text-blue-500 shrink-0" /><span className="text-slate-800">Har software FREE mein install karne ke direct links.</span></li>
