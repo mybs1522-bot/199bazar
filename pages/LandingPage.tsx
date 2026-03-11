@@ -92,6 +92,40 @@ const LandingPage: React.FC = () => {
           </div>
         </section>
 
+        {/* 1.5. THE AI REALITY CHECK */}
+        <section className="py-16 md:py-20 bg-slate-900 border-y border-slate-800 text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
+          
+          <div className="max-w-4xl mx-auto px-5 relative z-10 text-center">
+            <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 bg-red-500/10 border border-red-500/20 rounded-full reveal">
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+              <span className="text-xs font-bold text-red-500 tracking-wider uppercase">The Brutal Truth About 2026</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-5xl font-display font-bold leading-tight mb-6 reveal">
+              "AI mera job kha jayega..."
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-slate-300 font-medium mb-12 leading-relaxed max-w-3xl mx-auto reveal">
+              Nahi. AI job nahi khayega. <br className="hidden md:block" />
+              Lekin woh <span className="text-white font-bold border-b-2 border-blue-500">Architect/Designer zarur job le jayega</span> jise AI aur next-gen software use karna aata hai.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 text-left max-w-3xl mx-auto">
+              <div className="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-2xl backdrop-blur-sm reveal hover:border-red-500/30 transition-colors">
+                <div className="text-red-400 mb-4 bg-red-400/10 w-12 h-12 rounded-xl flex items-center justify-center"><X size={24} /></div>
+                <h3 className="text-xl font-bold text-white mb-3">Sirf AutoCAD = Outdated</h3>
+                <p className="text-sm md:text-base text-slate-400 leading-relaxed">Basic 2D plans aur flat PDFs ab clients ko impress nahi karte. Woh 3D walkthrough aur instant visualizations chahte hain. Agar base tools pe atke ho, toh survive karna mushkil hai.</p>
+              </div>
+              <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/20 border border-blue-500/30 p-6 md:p-8 rounded-2xl backdrop-blur-sm reveal shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:border-blue-400/50 transition-colors">
+                <div className="text-blue-400 mb-4 bg-blue-400/10 w-12 h-12 rounded-xl flex items-center justify-center"><Sparkles size={24} /></div>
+                <h3 className="text-xl font-bold text-white mb-3">Hybrid Workflow = Unstoppable</h3>
+                <p className="text-sm md:text-base text-slate-300 leading-relaxed">Jab tum SketchUp + V-Ray + AI ko ek sath use karte ho, tumhara output 10x fast aur quality 100x better hoti hai. AI tumhara assistant ban jata hai. Tum master ban jate ho.</p>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* 2. PROOF STATS — "Ye real hai" */}
         <section className="py-10 bg-slate-50 border-y border-slate-200 grid-bg">
           <div className="max-w-5xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-6">
