@@ -316,6 +316,10 @@ const LandingPage: React.FC = () => {
               ))}
             </div>
           </div>
+
+          <div className="max-w-5xl mx-auto px-5 mt-16 md:mt-24 text-center reveal">
+            <img src="/mentors.png" alt="Industry Experts" className="w-full h-auto drop-shadow-2xl" />
+          </div>
         </section>
 
         {/* 9. FAQ + FINAL CTA */}
